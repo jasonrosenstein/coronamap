@@ -1,0 +1,18 @@
+{
+  "name": "coronamap",
+  "description": "Our sample Node to Heroku app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "datamaps": "^0.5.9",
+    "ejs": "~1.0.0",
+    "express": "~4.9.8",
+    "geocoder": "^0.2.3",
+    "react": "^16.13.0",
+    "react-simple-maps": "^1.0.0-beta.0",
+    "react-tooltip": "^4.1.2",
+    "unirest": "^0.6.0"
+  }
+}

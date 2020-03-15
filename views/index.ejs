@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Corona Tracker</title>
+
+    <!-- CSS -->
+    <!-- load bootstrap and our own personal stylesheet -->
+    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="datamaps.world.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+	
+   
+
+    	<div id="bubbles" style="position: relative; width: 100vh; height: 100vh"></div>
+<script>
+
+    var bubble_map = new Datamap({
+  element: document.getElementById("bubbles"),
+  geographyConfig: {
+    popupOnHover: true,
+    highlightOnHover: true
+  },
+  fills: {
+    defaultFill: '#ABDDA4',
+    virus: 'red'
+  }
+});
+bubble_map.bubbles([
+  
+{
+    name:  '<%= COUNTRY[1].country %>',
+    radius: <%= COUNTRY[1].confirmed/100 %>,
+    yeild: <%= COUNTRY[1].confirmed %>,
+    fillKey: 'virus',
+    country: 'Italy',//'<%= COUNTRY[1].country %>',
+    centered: 'BRA'//<%= COUNTRY[1].country %>'
+  }
+], {
+  popupTemplate: function(geo, data) {
+    return '<div class="hoverinfo">Infected:' + data.yeild  + ' in '  + data.name + ''
+  }
+});
+</script> 
+        <!-- <h4>New York: <%= COUNTRY[1].confirmed %></h4> -->
+   
+</div>
+
+
+
+</body>
+</html>
